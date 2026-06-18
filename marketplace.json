@@ -1,0 +1,32 @@
+{
+  "name": "dcc-asset-sketchfab",
+  "version": "0.1.0",
+  "interface": {
+    "displayName": "Sketchfab Assets",
+    "description": "Sketchfab downloadable Creative Commons model search and downloads."
+  },
+  "installRoot": "~/.dcc-mcp/marketplace/{dcc}/{name}",
+  "skills": [
+    {
+      "name": "dcc-asset-sketchfab",
+      "description": "Search and download downloadable Sketchfab models with attribution metadata.",
+      "version": "0.1.0",
+      "dcc": ["maya", "blender", "houdini", "3dsmax"],
+      "tags": ["asset", "sketchfab", "creative-commons", "download", "glb", "gltf"],
+      "category": "Asset Providers",
+      "maintainer": "dcc-mcp",
+      "minCoreVersion": "0.18.0",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/dcc-mcp/dcc-asset-sketchfab",
+        "ref": "main"
+      },
+      "policy": {
+        "installation": "available"
+      },
+      "requires": {
+        "env": ["SKETCHFAB_TOKEN"]
+      }
+    }
+  ]
+}

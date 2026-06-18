@@ -1,0 +1,77 @@
+tools:
+  - name: search_sketchfab_models
+    description: Search downloadable Sketchfab models.
+    source_file: scripts/search_sketchfab_models.py
+    execution: sync
+    affinity: any
+    timeout_hint_secs: 30
+    enforce_thread_affinity: true
+    annotations:
+      read_only_hint: true
+      idempotent_hint: true
+      open_world_hint: true
+    group: sketchfab
+    input_schema:
+      type: object
+      properties:
+        query:
+          type: string
+        license:
+          type: string
+          description: Optional Sketchfab license filter such as by, by-sa, by-nc, cc0.
+        limit:
+          type: integer
+          minimum: 1
+          maximum: 50
+          default: 10
+    output_schema:
+      type: object
+
+  - name: get_sketchfab_model
+    description: Fetch one Sketchfab model metadata record.
+    source_file: scripts/get_sketchfab_model.py
+    execution: sync
+    affinity: any
+    timeout_hint_secs: 30
+    enforce_thread_affinity: true
+    annotations:
+      read_only_hint: true
+      idempotent_hint: true
+      open_world_hint: true
+    group: sketchfab
+    input_schema:
+      type: object
+      required: ["uid"]
+      properties:
+        uid:
+          type: string
+    output_schema:
+      type: object
+
+  - name: download_sketchfab_model
+    description: Download a Sketchfab archive for an authenticated downloadable model.
+    source_file: scripts/download_sketchfab_model.py
+    execution: sync
+    affinity: any
+    timeout_hint_secs: 300
+    enforce_thread_affinity: true
+    annotations:
+      read_only_hint: false
+      destructive_hint: false
+      idempotent_hint: false
+      open_world_hint: true
+    group: sketchfab
+    input_schema:
+      type: object
+      required: ["uid", "output_dir"]
+      properties:
+        uid:
+          type: string
+        output_dir:
+          type: string
+        format:
+          type: string
+          enum: ["gltf", "glb", "usdz"]
+          default: "gltf"
+    output_schema:
+      type: object
