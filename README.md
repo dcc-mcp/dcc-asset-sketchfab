@@ -1,6 +1,6 @@
 # DCC-MCP Sketchfab Assets
 
-![Workflow showcase](docs/workflow-showcase.png)
+![Workflow showcase](docs/images/dcc-asset-sketchfab-showcase.webp)
 
 Sketchfab free/downloadable model search and download tools for DCC-MCP.
 
