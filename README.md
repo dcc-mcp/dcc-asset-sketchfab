@@ -1,5 +1,7 @@
 # DCC-MCP Sketchfab Assets
 
+![Workflow showcase](docs/workflow-showcase.png)
+
 Sketchfab free/downloadable model search and download tools for DCC-MCP.
 
 This skill uses Sketchfab's official Data and Download APIs. It does not import
